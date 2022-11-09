@@ -1,4 +1,10 @@
 # RiskForm with localStorage and Modal support
 
-- [ ] whitelist with data.id
+<div align='center'>
+<img src="./public/logo512.png"/>
+</div>
+
+
+- [x] whitelist with data.id
+- [x] context and card
 - [x] iterate through nested array

@@ -2,13 +2,9 @@ import { Field } from 'react-final-form'
 import Wizard from './Wizard'
 import { createPersistDecorator } from "final-form-persist";
 import questions from './api/questions'
+import { useContext } from 'react';
+import ModalContext from '../../context/ModalContext';
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-
-const onSubmit = async values => {
-	await sleep(300)
-	window.alert(JSON.stringify(values, 0, 2))
-}
 
 // const Error = ({ name }) => (
 // 	<Field
@@ -20,19 +16,38 @@ const onSubmit = async values => {
 // 	/>
 // )
 
-const required = value => (value ? undefined : 'Required')
 
 
+export function RiskProfileFormV3Logic() {
+
+	const { riskFormFinished, setRiskFormFinished, handleClose, setShow } = useContext(ModalContext)
 
 
+	const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-const RiskProfileFormV3 = () => (
+	const onSubmit = async values => {
+		await sleep(300)
+		window.alert(JSON.stringify(values, 0, 2))
+		localStorage.removeItem('ExampleRiskForm')
+
+		handleClose()
+
+		localStorage.setItem('Finished', true)
+	}
+
+	return (
+		<RiskProfileFormV3 onSubmit={onSubmit} />
+	)
+}
+
+
+const RiskProfileFormV3 = (props) => (
+
+
 
 	<Wizard
 		initialValues={{}}
-		onSubmit={onSubmit}
-
-
+		onSubmit={props.onSubmit}
 	>
 
 
@@ -47,34 +62,19 @@ const RiskProfileFormV3 = () => (
 			// }}
 			>
 				<div>
-					<label>{data.question}</label>
-					<div >
+					<label><h3>{data.question}</h3></label>
+					<div style={{ display: 'flex', flexDirection: 'column' }}>
 						{data.answers.map((answer) => (
 							<label>
 								<Field
 									name={data.id}
 									component="input"
 									type="radio"
-									value="moe"
+									value={answer.type}
 								/>{' '}
 								{answer.content}
 							</label>
 						))}
-
-
-						{/* <label>
-							<Field name="stooge" component="input" type="radio" value="moe" />{' '}
-							Moe
-						</label>
-						<label>
-							<Field
-								name="stooge"
-								component="input"
-								type="radio"
-								value="curly"
-							/>{' '}
-							Curly
-						</label> */}
 					</div>
 				</div>
 				<div>

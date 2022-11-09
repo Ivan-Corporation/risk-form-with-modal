@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Form } from 'react-final-form'
 import { createPersistDecorator } from "final-form-persist";
+import { Button } from 'react-bootstrap';
 
 
 export default class Wizard extends React.Component {
@@ -66,7 +67,7 @@ export default class Wizard extends React.Component {
 			name: "ExampleRiskForm",
 			debounceTime: 500,
 			whitelist: [
-				"stooge", "ivan", "cusos"
+				"WHO", "AGE", "PLANET"
 			]
 		});
 
@@ -81,20 +82,20 @@ export default class Wizard extends React.Component {
 				{({ handleSubmit, submitting, values }) => (
 					<form onSubmit={handleSubmit}>
 						{activePage}
-						<div className="buttons">
+						<div className="buttons mt-2 mb-1" style={{ display: 'flex', justifyContent: 'space-between' }}>
 							{page > 0 && (
-								<button type="button" onClick={this.previous}>
+								<Button type="button" variant="danger" onClick={this.previous}>
 									« Назад
-								</button>
+								</Button>
 							)}
-							{!isLastPage && <button type="submit">Вперёд »</button>}
+							{!isLastPage && <Button variant="primary" type="submit">Вперёд »</Button>}
 							{isLastPage && (
-								<button type="submit" disabled={submitting}>
+								<Button variant="success" type="submit" disabled={submitting}>
 									Подтвердить
-								</button>
+								</Button>
 							)}
 						</div>
-
+						<hr />
 						<pre style={{ background: 'white' }}>{JSON.stringify(values, 0, 2)}</pre>
 					</form>
 				)}

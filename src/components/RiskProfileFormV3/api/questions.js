@@ -1,92 +1,80 @@
 var quizQuestions = [
 	{
-		id: "WANT_FROM_MONEY",
-		question: "Что я хочу от своих денег?",
+		id: "WHO",
+		question: "Who am I?",
 
 		answers: [
 			{
-				type: "DONT_LOSS",
-				content: "Не потерять",
+				type: "Human",
+				content: "Human",
 				answer: false,
 				weight: 1
 			},
 			{
-				type: "REGULAR_INCOME",
-				content: "Регулярный доход",
+				type: "Nobody",
+				content: "Nobody",
 				answer: false,
 				weight: 2
 			},
 			{
-				type: "GROWTH_NOT_INCOME",
-				content: "Рост без дохода",
+				type: "Abomination",
+				content: "Abomination",
 				answer: false,
-				weight: 3
-			},
-			{
-				type: "DONT_REDUCE",
-				content: "Не уменьшить",
-				answer: false,
-				weight: 1
+				weight: 2
 			}
 		]
 	},
 
 
 	{
-		id: "INVESTMENT_TERM",
-		question: "На какой срок вы готовы инвестировать?",
+		id: "AGE",
+		question: "My age",
 		answers: [
 			{
-				type: "SMALLER",
-				content: "до 2 лет",
+				type: "22",
+				content: "22",
 				answer: false,
 				weight: 3
 			},
 			{
-				type: "SMALL",
-				content: "2-5 лет",
+				type: "33",
+				content: "33",
 				answer: false,
 				weight: 3
 			},
 			{
-				type: "MEDIUM",
-				content: "от 5 лет",
+				type: "51",
+				content: "51",
 				answer: false,
 				weight: 2
 			},
 			{
-				type: "LARGE",
-				content: "от 10 лет",
+				type: "6",
+				content: "6",
 				answer: false,
 				weight: 1
 			}
 		]
 	},
 	{
-		id: "SATISFY_PROFIT",
-		question: "Меня устраивает доходность",
+		id: "PLANET",
+		question: "My planet",
 		answers: [
 			{
-				type: "SMALL",
-				content: "5-7%",
+				type: "Earth",
+				content: "Earth",
 				answer: false,
 				weight: 1
 			},
 			{
-				type: "MEDIUM",
-				content: "10-15%",
+				type: "Mars",
+				content: "Mars",
 				answer: false,
 				weight: 2
 			},
 			{
-				type: "LARGE",
-				content: "20-30%",
-				answer: false,
-				weight: 3
-			},
-			{
-				type: "LARGEST",
-				content: "более 30%",
+				type: "Nibiru",
+				content: "Nibiru",
 				answer: false,
 				weight: 3
 			}
