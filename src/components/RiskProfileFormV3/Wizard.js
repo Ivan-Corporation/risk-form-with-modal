@@ -20,7 +20,7 @@ export default class Wizard extends React.Component {
 		};
 
 		var isRiskForm = JSON.parse(localStorage.getItem('ExampleRiskForm'));
-		// var ActivePage = Object.keys(getActivePage).length
+		// var ActiveStoragePage = Object.keys(getActivePage).length
 		console.log(isRiskForm)
 
 		if (isRiskForm == null) {
@@ -30,18 +30,18 @@ export default class Wizard extends React.Component {
 
 
 		var getActivePage = JSON.parse(localStorage.getItem('ExampleRiskForm'));
-		var ActivePage = Object.keys(getActivePage).length
+		var ActiveStoragePage = Object.keys(getActivePage).length
 
 
 		// console.log(getActivePage.keys(Obj).length)
-		console.log(ActivePage)
+		console.log(ActiveStoragePage)
 
-		var testNumber = 2
-		console.log(testNumber)
+		// var testNumber = 2
+		// console.log(testNumber)
 
 
 		this.state = {
-			page: ActivePage,
+			page: ActiveStoragePage - 1,
 			values: props.initialValues || {}
 		}
 	}
