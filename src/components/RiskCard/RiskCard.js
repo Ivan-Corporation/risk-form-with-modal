@@ -17,7 +17,7 @@ function RiskCard({ header_info, card_text, button_text }) {
 	}
 
 	return (
-		<Card style={{ background: 'orange', fontWeight: '800' }}>
+		<Card style={{ background: 'orange', fontWeight: '700' }}>
 			<Card.Header><h3>
 				{/* {localStorage.getItem("ExampleRiskForm") === null ? 'Test on abomination' : 'Continue test'} */}
 				{header_info}
