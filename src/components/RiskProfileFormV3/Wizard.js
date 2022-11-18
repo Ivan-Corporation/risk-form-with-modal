@@ -4,17 +4,44 @@ import { Form } from 'react-final-form'
 import { createPersistDecorator } from "final-form-persist";
 import { Button } from 'react-bootstrap';
 
-
 export default class Wizard extends React.Component {
 	static propTypes = {
 		onSubmit: PropTypes.func.isRequired
 	}
 	static Page = ({ children }) => children
 
+
 	constructor(props) {
 		super(props)
+
+
+		var firstQuestion = {
+			WHO: "Human"
+		};
+
+		var isRiskForm = JSON.parse(localStorage.getItem('ExampleRiskForm'));
+		// var ActivePage = Object.keys(getActivePage).length
+		console.log(isRiskForm)
+
+		if (isRiskForm == null) {
+			localStorage.setItem('ExampleRiskForm', JSON.stringify(firstQuestion))
+		}
+
+
+
+		var getActivePage = JSON.parse(localStorage.getItem('ExampleRiskForm'));
+		var ActivePage = Object.keys(getActivePage).length
+
+
+		// console.log(getActivePage.keys(Obj).length)
+		console.log(ActivePage)
+
+		var testNumber = 2
+		console.log(testNumber)
+
+
 		this.state = {
-			page: 0,
+			page: ActivePage,
 			values: props.initialValues || {}
 		}
 	}
@@ -46,6 +73,7 @@ export default class Wizard extends React.Component {
 		const { children, onSubmit } = this.props
 		const { page } = this.state
 		const isLastPage = page === React.Children.count(children) - 1
+
 		if (isLastPage) {
 			return onSubmit(values)
 		} else {
@@ -54,11 +82,13 @@ export default class Wizard extends React.Component {
 	}
 
 
-
 	render() {
 		const { children } = this.props
 		const { page, values } = this.state
 		const activePage = React.Children.toArray(children)[page]
+
+		// console.log(activePage.key)
+
 		const isLastPage = page === React.Children.count(children) - 1
 
 

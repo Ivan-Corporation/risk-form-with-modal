@@ -13,6 +13,7 @@ function App() {
 	const { show, handleClose } = useContext(ModalContext)
 
 
+
 	return (
 		<div className="App">
 			<Modal show={show} onHide={handleClose} style={{ background: 'rgba(128, 128, 128, 0.1)', fontWeight: '800' }}>
